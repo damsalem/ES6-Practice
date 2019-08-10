@@ -20,27 +20,35 @@
         JS: "JavaScript"
       };
 
-      function addAbbreviation(strings, ...values) {
+      function addAbb(strings, ...values) {
         const abbreviated = values.map(value => {
           if (dict[value]) {
             return `<abbr title="${dict[value]}">${value}</abbr>`;
           }
-          return value; //If not in dictionary, just return the variable
+          return value;
         });
-        return strings.reduce((sentence, string, i) => {
-          return `${sentence}${string}${abbreviated[i] || ""}`;
-        }, "");
+        console.log(abbreviated);
+        console.log(strings);
+        // return strings.reduce((sentence, string, i) => {
+        //   return `${sentence}${string}${abbreviated[i] || ""}`;
+        // }, "");
+        let str = "";
+        strings.forEach((string, i) => {
+          str += string + (abbreviated[i] || "");
+        });
+        return str;
       }
 
       const first = "Wes";
       const last = "Bos";
-      const sentence = addAbbreviation`Hello, my name is ${first} ${last} and I love to code ${"HTML"}, ${"CSS"}, and ${"JS"}`;
-      console.log(sentence);
+      const sentence = addAbb`Hello my name is ${first} ${last} and I love to code ${"HTML"}, ${"CSS"}, and ${"JS"}`;
 
-      const domBio = document.querySelector(".bio");
+      console.log({ sentence });
+
+      const bio = document.querySelector(".bio");
       const p = document.createElement("p");
       p.innerHTML = sentence;
-      domBio.append(p);
+      bio.append(p);
     </script>
   </body>
 </html>
