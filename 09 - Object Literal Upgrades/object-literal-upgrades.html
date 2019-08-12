@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Object Literal Upgrades</title>
-</head>
-<body>
-<script>
-  const first = 'snickers';
-  const last = 'bos';
-  const age = 2;
-  const breed = 'King Charles Cav';
-  const dog = {
-    firstName: first,
-    last,
-    age,
-    breed,
-    pals: ['Hugo', 'Sunny']
-  };
-  console.log(dog);
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object Literal Upgrades</title>
+  </head>
+  <body>
+    <script>
+      const first = "snickers";
+      const last = "bos";
+      const age = 2;
+      const breed = "King Charles Cav";
+      const dog = {
+        first,
+        familyName: last,
+        age,
+        breed,
+        pals: ["Simon", "Frankie", "Hunter"]
+      };
+      console.log(dog);
 
-  const modal = {
-    create(selector) {
+      const modal = {
+        create: function() {}, // can drop colon and "function"
+        open() {},
+        close(goodbye) {}
+      };
 
-    },
-    open(content) {
+      /////
+      function invertColor(color) {
+        return (
+          "#" +
+          (
+            "000000" +
+            (0xffffff ^ parseInt(color.substring(1), 16)).toString(16)
+          ).slice(-6)
+        );
+      }
+      /////
 
-    },
-    close(goodbye) {
+      const key = "pocketColor";
+      const value = "#ffc600";
 
-    }
-  }
+      const tShirt = {
+        [key]: value,
+        [`${key}Opposite`]: invertColor(value) // creating a new key/value
+      };
 
-  function invertColor(color) {
-      return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
-  }
+      const keys = ["size", "color", "weight"];
+      const values = ["medium", "red", 100];
 
-  const key = 'pocketColor';
-  const value = '#ffc600';
-
-  const tShirt = {
-    [key]: value,
-    [`${key}Opposite`]: invertColor(value)
-  };
-
-  const keys = ['size', 'color', 'weight'];
-  const values = ['medium', 'red', 100];
-
-  const shirt = {
-    [keys.shift()]: values.shift(),
-    [keys.shift()]: values.shift(),
-    [keys.shift()]: values.shift(),
-  }
-  console.log(shirt);
-
-
-</script>
-</body>
+      const shirt = {
+        // [keys[0]]: values[0] //replaced with the following
+        // [keys[1]]: values[1] //replaced with the following
+        // [keys[2]]: values[2] //replaced with the following
+        [keys.shift()]: values.shift(),
+        [keys.shift()]: values.shift(),
+        [keys.shift()]: values.shift()
+      };
+    </script>
+  </body>
 </html>
