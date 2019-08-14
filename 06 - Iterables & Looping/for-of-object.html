@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Iterables & Looping</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iterables & Looping</title>
+  </head>
+  <body>
+    <script>
+      const apple = {
+        color: "Red",
+        size: "Medium",
+        weight: 50,
+        sugar: 10
+      };
 
-<script>
-  const apple = {
-    color: 'Red',
-    size: 'Medium',
-    weight: 50,
-    sugar: 10
-  };
+      // for (const prop of Object.keys(apple)) {
+      //   // console.log(apple[prop]); //provides keys
+      //   console.log(prop);
+      // }
 
-  for (const prop in apple) {
-    const value = apple[prop];
-    console.log(value, prop);
-  }
-
-</script>
-</body>
+      for (const prop in apple) {
+        const value = apple[prop];
+        const key = prop;
+        console.log(`The ${key} is ${value}`);
+      }
+    </script>
+  </body>
 </html>
