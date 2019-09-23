@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Inheritance Review</title>
-</head>
-<body>
-<script>
-  function Dog(name, breed) {
-    this.name = name;
-    this.breed = breed;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inheritance Review</title>
+  </head>
+  <body>
+    <script>
+      // class declaration
+      class Dog {
+        //constructor is the only required method
+        constructor(name, breed) {
+          this.name = name;
+          this.breed = breed;
+        }
+        bark() {
+          console.log(`Bark Bark! My name is ${this.name}`);
+        }
+        cuddle() {
+          console.log(`${this.name} loves you! *Lick* *Lick`);
+        }
+        static info() {
+          console.log(`Dogs are definitely better than cats`);
+        }
+        get description() {
+          return `${this.name} is a ${this.breed} type of dog`;
+        }
+        set nicknames(value) {
+          this.name2 = value.trim();
+        }
+        get nicknames() {
+          return this.name2;
+        }
+      }
 
-  Dog.prototype.bark = function() {
-    console.log(`Bark Bark! My name is ${this.name}`);
-  };
+      // class expression
+      // const Dog = class {};
 
-  Dog.prototype.cuddle = function() {
-    console.log(`I love you owner!`);
-  };
-
-  const snickers = new Dog('Snickers', 'King Charles');
-  const sunny = new Dog('Sunny', 'Golden Doodle');
-
-</script>
-</body>
+      const snickers = new Dog("Snickers", "King Charles");
+      const sunny = new Dog("Sunny", "Golden Doodle");
+    </script>
+  </body>
 </html>
