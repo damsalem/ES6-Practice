@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Looping Generators</title>
-</head>
-<body>
-<script>
-  function* lyrics() {
-    yield `But don't tell my heart`;
-    yield `My achy breaky heart`;
-    yield `I just don't think he'd understand`;
-    yield `And if you tell my heart`;
-    yield `My achy breaky heart`;
-    yield `He might blow up and kill this man`;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Looping Generators</title>
+  </head>
+  <body>
+    <script>
+      function* lyrics() {
+        yield `I, I, hold, hold on to you`;
+        yield `you bring me hope I'll see you soon`;
+        yield `and if I don't see you`;
+        yield `I'm afraid we've lost the way`;
+        yield ``;
+        yield `stay beautiful, baby`;
+        yield `I hope you stay American, baby`;
+        yield `American baby`;
+        yield `American baby`;
+        yield ``;
+        yield `I hold on to you,`;
+        yield `you lift me up and always will`;
+        yield `I see you in light`;
+        yield `hope I don't get left behind`;
+      }
 
-  const achy = lyrics();
+      const achy = lyrics();
 
-  for (const line of achy) {
-    console.log(line);
-  }
-</script>
-</body>
+      for (const line of achy) {
+        console.log(line);
+      }
+    </script>
+  </body>
 </html>
