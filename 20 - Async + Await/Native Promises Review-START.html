@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Native Promises</title>
+  </head>
 
-<head>
-  <title>Native Promises</title>
-</head>
+  <video controls class="handsome"></video>
 
-<video controls class="handsome"></video>
+  <body>
+    <script>
+      fetch("https://api.github.com/users/damsalem")
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.error("Oh noooooo!");
+          console.error(err);
+        });
 
-<body>
-  <script>
+      const video = document.querySelector("video.handsome");
 
-  </script>
-</body>
-
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(MediaStream => {
+          video.srcObject = MediaStream;
+          video.load();
+          video.play();
+        })
+        .catch(err => {
+          alert(
+            "Please allow the webcame so this will work! \nRefresh and click on [Allow]"
+          );
+          console.error(err);
+        });
+    </script>
+  </body>
 </html>
