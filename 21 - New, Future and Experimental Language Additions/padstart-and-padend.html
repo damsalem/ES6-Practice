@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>String padStart and padEnd</title>
+  </head>
 
-<head>
-  <title>String padStart and padEnd</title>
-</head>
+  <body>
+    <script>
+      const strings = [
+        "short",
+        "medium size",
+        "this is really long",
+        "this is really really really really long"
+      ];
+      const longestString = strings
+        .sort(str => str.length)
+        .reverse()
+        .map(str => str.length)[0];
+      console.log(longestString);
 
-<body>
-  <script>
-    const strings = ['short', 'medium size', 'this is really really long', 'this is really reall really really really really long'];
-    const longestString = strings.sort((a, b) => b.length - a.length).map(str => str.length)[0];
-
-    strings.forEach(str => console.log(str.padStart(longestString)));
-  </script>
-</body>
-
+      const newLine = strings.forEach(str =>
+        console.log(str.padStart(longestString))
+      );
+    </script>
+  </body>
 </html>
